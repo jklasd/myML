@@ -11,31 +11,6 @@ from sklearn.linear_model import LinearRegression
 
 if __name__ == "__main__":
     path = '8.Advertising.csv'
-    # # 手写读取数据 - 请自行分析，在8.2.Iris代码中给出类似的例子
-    # f = file(path)
-    # x = []
-    # y = []
-    # for i, d in enumerate(f):
-    #     if i == 0:
-    #         continue
-    #     d = d.strip()
-    #     if not d:
-    #         continue
-    #     d = map(float, d.split(','))
-    #     x.append(d[1:-1])
-    #     y.append(d[-1])
-    # print x
-    # print y
-    # x = np.array(x)
-    # y = np.array(y)
-
-    # # Python自带库
-    # f = file(path, 'rb')
-    # print f
-    # d = csv.reader(f)
-    # for line in d:
-    #     print line
-    # f.close()
 
     # # numpy读入
     # p = np.loadtxt(path, delimiter=',', skiprows=1)
@@ -58,21 +33,21 @@ if __name__ == "__main__":
     plt.show()
     # #
     # # 绘制2
-    # plt.figure(figsize=(9,12))
-    # plt.subplot(311)
-    # plt.plot(data['TV'], y, 'ro')
-    # plt.title('TV')
-    # plt.grid()
-    # plt.subplot(312)
-    # plt.plot(data['Radio'], y, 'g^')
-    # plt.title('Radio')
-    # plt.grid()
-    # plt.subplot(313)
-    # plt.plot(data['Newspaper'], y, 'b*')
-    # plt.title('Newspaper')
-    # plt.grid()
-    # plt.tight_layout()
-    # plt.show()
+    plt.figure(figsize=(9,12))
+    plt.subplot(311)
+    plt.plot(data['TV'], y, 'ro')
+    plt.title('TV')
+    plt.grid()
+    plt.subplot(312)
+    plt.plot(data['Radio'], y, 'g^')
+    plt.title('Radio')
+    plt.grid()
+    plt.subplot(313)
+    plt.plot(data['Newspaper'], y, 'b*')
+    plt.title('Newspaper')
+    plt.grid()
+    plt.tight_layout()
+    plt.show()
 
     x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=1)
     # print x_train, y_train
