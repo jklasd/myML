@@ -47,7 +47,7 @@ if __name__ == "__main__":
     #  [40 41 42 43 44 45]
     #  [50 51 52 53 54 55]]
     # a = np.arange(0, 60, 10).reshape((-1, 1)) + np.arange(6)
-    # print a
+    # print (a)
 
     # 正式开始  -:)
     # 标准Python的列表(list)中，元素本质是对象。
@@ -63,7 +63,7 @@ if __name__ == "__main__":
     # print type(a)
     # # # 若传递的是多层嵌套的list，将创建多维数组
     # b = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
-    # print b
+    # print (b)
     # # #
     # # # # 数组大小可以通过其shape属性获得
     # print a.shape
@@ -82,8 +82,8 @@ if __name__ == "__main__":
     # b.shape = 3, 4
     # # # 使用reshape方法，可以创建改变了尺寸的新数组，原数组的shape保持不变
     # c = b.reshape((4, -1))
-    # print "b = \n", b
-    # print 'c = \n', c
+    # print ("b = \n", b)
+    # print ('c = \n', c)
     # #
     # # # 数组b和c共享内存，修改任意一个将影响另外一个
     # b[0][1] = 20
@@ -112,8 +112,8 @@ if __name__ == "__main__":
     # 如果生成一定规则的数据，可以使用NumPy提供的专门函数
     # arange函数类似于python的range函数：指定起始值、终止值和步长来创建数组
     # 和Python的range类似，arange同样不包括终值；但arange可以生成浮点类型，而range只能是整数类型
-    # a = np.arange(1, 10, 0.5)
-    # print a
+    a = np.arange(1, 10, 1)
+    print (a)
     # # #
     # # # linspace函数通过指定起始值、终止值和元素个数来创建数组，缺省包括终止值
     # b = np.linspace(1, 10, 10)
@@ -253,20 +253,20 @@ if __name__ == "__main__":
     # matplotlib.rcParams['axes.unicode_minus'] = False
 
     # 5.2 损失函数：Logistic损失(-1,1)/SVM Hinge损失/ 0/1损失
-    x = np.array(np.linspace(start=-2, stop=3, num=1001, dtype=np.float))
-    y_logit = np.log(1 + np.exp(-x)) / math.log(2)
-    y_boost = np.exp(-x)
-    y_01 = x < 0
-    y_hinge = 1.0 - x
-    y_hinge[y_hinge < 0] = 0
-    plt.plot(x, y_logit, 'r-', label='Logistic Loss', linewidth=2)
-    plt.plot(x, y_01, 'g-', label='0/1 Loss', linewidth=2)
-    plt.plot(x, y_hinge, 'b-', label='Hinge Loss', linewidth=2)
-    plt.plot(x, y_boost, 'm--', label='Adaboost Loss', linewidth=2)
-    plt.grid()
-    plt.legend(loc='upper right')
-    # plt.savefig('1.png')
-    plt.show()
+    # x = np.array(np.linspace(start=-2, stop=3, num=1001, dtype=np.float))
+    # y_logit = np.log(1 + np.exp(-x)) / math.log(2)
+    # y_boost = np.exp(-x)
+    # y_01 = x < 0
+    # y_hinge = 1.0 - x
+    # y_hinge[y_hinge < 0] = 0
+    # plt.plot(x, y_logit, 'r-', label='Logistic Loss', linewidth=2)
+    # plt.plot(x, y_01, 'g-', label='0/1 Loss', linewidth=2)
+    # plt.plot(x, y_hinge, 'b-', label='Hinge Loss', linewidth=2)
+    # plt.plot(x, y_boost, 'm--', label='Adaboost Loss', linewidth=2)
+    # plt.grid()
+    # plt.legend(loc='upper right')
+    # # plt.savefig('1.png')
+    # plt.show()
 
     # # # 5.3 x^x
     # x = np.linspace(-1.3, 1.3, 101)
@@ -276,13 +276,16 @@ if __name__ == "__main__":
     # plt.legend(loc='upper left')
     # plt.show()
 
-    # # 5.4 胸型线
-    # x = np.arange(1, 0, -0.001)
-    # y = (-3 * x * np.log(x) + np.exp(-(40 * (x - 1 / np.e)) ** 4) / 25) / 2
-    # plt.figure(figsize=(5,7))
-    # plt.plot(y, x, 'r-', linewidth=2)
-    # plt.grid(True)
-    # plt.show()
+    # 5.4 胸型线
+    x = np.arange(1, 0, -0.001)
+    a = np.exp(-(40 * (x - 1 / np.e)) ** 4) / 25
+    y = (-3 * x * np.log(x)+a) /2
+    print(x)
+    print(y)
+    plt.figure(figsize=(5,7))
+    plt.plot(y, x, 'r-', linewidth=2)
+    plt.grid(True)
+    plt.show()
 
     # 5.5 心形线
     # t = np.linspace(0, 7, 100)

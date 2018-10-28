@@ -16,7 +16,7 @@ def bagging(n, p):
 
 
 if __name__ == "__main__":
-    for t in range(10, 101, 10):
+    for t in range(10, 1000, 10):
         print (t, '次采样正确率：', bagging(t, 0.6))
 
 

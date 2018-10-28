@@ -36,7 +36,7 @@ def restore2(sigma, u, v, K):  # 奇异值、左特征向量、右特征向量
 
 
 if __name__ == "__main__":
-    A = Image.open("6.son.png", 'r')
+    A = Image.open("test.jpg", 'r')
     output_path = r'.\Pic'
     if not os.path.exists(output_path):
         os.mkdir(output_path)
