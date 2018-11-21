@@ -16,7 +16,7 @@ def max_pool_2x2(x):
   return tf.nn.max_pool(x, ksize=[1, 2, 2, 1],
                         strides=[1, 2, 2, 1], padding='SAME')
 if __name__ == '__main__':
-    dirpath = '../testdata/'
+    dirpath = '../fashion-data/'
     mnist = input_data.read_data_sets(dirpath, one_hot=True)
 
     image_size = 28 * 28

@@ -3,7 +3,7 @@ import tensorflow as tf
 import os
 
 if __name__ == '__main__':
-    dirpath = '../testdata/'
+    dirpath = '../fashion-data/'
     if os.path.exists(dirpath):
         mnist = input_data.read_data_sets(dirpath,one_hot=True);
 
