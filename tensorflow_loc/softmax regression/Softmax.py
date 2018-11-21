@@ -3,7 +3,7 @@ import tensorflow as tf
 import os
 
 if __name__ == '__main__':
-    dirpath = '../fashion-data/'
+    dirpath = '../testdata/'
     if os.path.exists(dirpath):
         mnist = input_data.read_data_sets(dirpath,one_hot=True);
 
@@ -23,6 +23,8 @@ if __name__ == '__main__':
         init = tf.global_variables_initializer()
         sess = tf.InteractiveSession()
         sess.run(init)
+
+        # saver = tf.train.Saver()
         for i in range(1000):
             batch_xs, batch_ys = mnist.train.next_batch(100)
 
@@ -31,6 +33,8 @@ if __name__ == '__main__':
         correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
 
         accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
+
+        # saver.save(sess,dirpath+'softmaxMode.ckpt')
         # print(accuracy.eval())
         # tmp = sess.run(accuracy, feed_dict={x: mnist.test.images, y_: mnist.test.labels})
         tmp = accuracy.eval(feed_dict={x: mnist.test.images, y_: mnist.test.labels})
