@@ -119,7 +119,7 @@ if __name__ == '__main__':
                               padding='post',
                               maxlen=256)
 
-    # print(train_data[0])
+    print(train_data[0])
     # str = decode_review(train_data[0])
     # print(str)
 
