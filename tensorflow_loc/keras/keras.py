@@ -92,6 +92,9 @@ if __name__ == '__main__':
                   loss='sparse_categorical_crossentropy',
                   metrics=['accuracy'])
     # c、训练模型
+    print(train_images[0])
+    print(train_labels[0])
+
     model.fit(train_images, train_labels, epochs=5)
 
     # d、评估

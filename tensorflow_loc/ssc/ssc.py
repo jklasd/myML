@@ -25,11 +25,11 @@ class Datasets(object):
         self.x = []
         self.y = []
         self.n = 0
+
     def subsection(self,x,y):
         length = len(x)
         for k in range(int(len(x)/self.size)):
             if (k+1)*self.size == length:
-                # print(x[:length-100])
                 self.x.append(x[:length-self.size])
                 self.y.append(y[:length-self.size])
             else:
@@ -44,12 +44,13 @@ class Datasets(object):
         else:
             self.n = 0
             return self.x[self.n], self.y[self.n]
+
 if __name__ == '__main__':
     path = '../testdata/blod.data'
     data = np.loadtxt(path, delimiter=' ',skiprows=1)
     # print(data[0])
-    train_data = data[500:];
-    test_data = data[:500];
+    train_data = data[90 * 7:];
+    test_data = data[:90 * 7];
     x_data, y_data = np.split(train_data, (10,), axis=1)
     x_test_data, y_test_data = np.split(test_data, (10,), axis=1)
     y_data = merge(y_data)
@@ -66,7 +67,7 @@ if __name__ == '__main__':
     y_ = tf.placeholder("float", [None, num_type])
 
     cross_entropy = -tf.reduce_sum(y_ * tf.log(y))
-    train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)
+    train_step = tf.train.GradientDescentOptimizer(0.001).minimize(cross_entropy)
 
     init = tf.global_variables_initializer()
     sess = tf.InteractiveSession()
@@ -75,10 +76,10 @@ if __name__ == '__main__':
     # saver = tf.train.Saver()
     datautil = Datasets(size=90);
     datautil.subsection(x_data,y_data)
-    for i in range(1000):
-        # x_t,y_t = datautil.next()
+    for i in range(5):
+        x_t,y_t = datautil.next()
         # print(x_t)
-        train_step.run(feed_dict={x: x_data, y_: y_data})
+        train_step.run(feed_dict={x: x_t, y_: y_t})
     #
     correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
