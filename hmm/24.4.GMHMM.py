@@ -25,6 +25,7 @@ if __name__ == "__main__":
     print ('初始概率：', pi)
 
     A = np.random.rand(n, n)
+    # print(A)
     mask = np.zeros((n, n), dtype=np.bool)
     mask[0][1] = mask[0][4] = True
     mask[1][0] = mask[1][2] = True

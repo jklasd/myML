@@ -28,6 +28,7 @@ if __name__ == "__main__":
     path = '..\\regression\\8.iris.data'  # 数据文件路径
     data = np.loadtxt(path, dtype=float, delimiter=',', converters={4: iris_type})
     x, y = np.split(data, (4,), axis=1)
+    print('y=',y)
     # 为了可视化，仅使用前两列特征
     x = x[:, :2]
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=1)
@@ -89,20 +90,20 @@ if __name__ == "__main__":
     print ('准确度: %.2f%%' % (100 * acc))
 
     # 过拟合：错误率
-    depth = np.arange(1, 15)
-    err_list = []
-    for d in depth:
-        clf = DecisionTreeClassifier(criterion='entropy', max_depth=d)
-        clf = clf.fit(x_train, y_train)
-        y_test_hat = clf.predict(x_test)  # 测试数据
-        result = (y_test_hat == y_test)  # True则预测正确，False则预测错误
-        err = 1 - np.mean(result)
-        err_list.append(err)
-        print (d, ' 准确度: %.2f%%' % (100 * err))
-    plt.figure(facecolor='w')
-    plt.plot(depth, err_list, 'ro-', lw=2)
-    plt.xlabel(u'决策树深度', fontsize=15)
-    plt.ylabel(u'错误率', fontsize=15)
-    plt.title(u'决策树深度与过拟合', fontsize=17)
-    plt.grid(True)
-    plt.show()
+    # depth = np.arange(1, 15)
+    # err_list = []
+    # for d in depth:
+    #     clf = DecisionTreeClassifier(criterion='entropy', max_depth=d)
+    #     clf = clf.fit(x_train, y_train)
+    #     y_test_hat = clf.predict(x_test)  # 测试数据
+    #     result = (y_test_hat == y_test)  # True则预测正确，False则预测错误
+    #     err = 1 - np.mean(result)
+    #     err_list.append(err)
+    #     print (d, ' 准确度: %.2f%%' % (100 * err))
+    # plt.figure(facecolor='w')
+    # plt.plot(depth, err_list, 'ro-', lw=2)
+    # plt.xlabel(u'决策树深度', fontsize=15)
+    # plt.ylabel(u'错误率', fontsize=15)
+    # plt.title(u'决策树深度与过拟合', fontsize=17)
+    # plt.grid(True)
+    # plt.show()

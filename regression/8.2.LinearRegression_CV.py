@@ -39,3 +39,4 @@ if __name__ == "__main__":
     plt.legend(loc='upper right')
     plt.grid()
     plt.show()
+    plt.savefig('3.png')
