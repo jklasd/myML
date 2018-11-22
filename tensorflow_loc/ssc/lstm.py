@@ -1,6 +1,5 @@
 import numpy as np
 import tensorflow as tf
-from tensorflow import keras
 import tensorflow.contrib.rnn as rnn
 
 def merge(arr):
@@ -59,8 +58,11 @@ if __name__ == '__main__':
     test_data = data[:90 * 7];
     x_data, y_data = np.split(train_data, (10,), axis=1)
     x_test_data, y_test_data = np.split(test_data, (10,), axis=1)
-    y_data = merge(y_data)
 
+    # x_data = np.reshape(x_data, newshape=(-1, 1, 10))
+    # x_test_data = np.reshape(x_test_data, newshape=(-1, 1, 10))
+
+    y_data = merge(y_data)
     y_test_data = merge(y_test_data)
     # --------------------------------------Define Graph---------------------------------------------------#
     graph = tf.Graph()

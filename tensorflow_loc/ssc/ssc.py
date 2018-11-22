@@ -63,7 +63,10 @@ if __name__ == '__main__':
     W = tf.Variable(tf.zeros([image_size, num_type]))
     b = tf.Variable(tf.zeros([num_type]))
 
-    y = tf.nn.softmax(tf.matmul(x, W) + b)
+    pro = tf.matmul(x, W)
+    eq = pro + b
+
+    y = tf.nn.softmax(eq)
     y_ = tf.placeholder("float", [None, num_type])
 
     cross_entropy = -tf.reduce_sum(y_ * tf.log(y))
