@@ -62,8 +62,8 @@ if __name__ == "__main__":
     # print "a = ", a
     # print type(a)
     # # # 若传递的是多层嵌套的list，将创建多维数组
-    # b = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
-    # print (b)
+    b = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+    print (b)
     # # #
     # # # # 数组大小可以通过其shape属性获得
     # print a.shape
@@ -71,7 +71,7 @@ if __name__ == "__main__":
     # # #
     # # # 也可以强制修改shape
     # b.shape = 4, 3
-    # print b
+    # print (b)
     # # # # 注：从(3,4)改为(4,3)并不是对数组进行转置，而只是改变每个轴的大小，数组元素在内存中的位置并没有改变
     # # #
     # # # 当某个轴为-1时，将根据数组元素的个数自动计算此轴的长度
@@ -81,9 +81,9 @@ if __name__ == "__main__":
     # # #
     # b.shape = 3, 4
     # # # 使用reshape方法，可以创建改变了尺寸的新数组，原数组的shape保持不变
-    # c = b.reshape((4, -1))
-    # print ("b = \n", b)
-    # print ('c = \n', c)
+    c = b.reshape((4, -1))
+    print ("b = \n", b)
+    print ('c = \n', c)
     # #
     # # # 数组b和c共享内存，修改任意一个将影响另外一个
     # b[0][1] = 20
@@ -112,8 +112,8 @@ if __name__ == "__main__":
     # 如果生成一定规则的数据，可以使用NumPy提供的专门函数
     # arange函数类似于python的range函数：指定起始值、终止值和步长来创建数组
     # 和Python的range类似，arange同样不包括终值；但arange可以生成浮点类型，而range只能是整数类型
-    a = np.arange(1, 10, 1)
-    print (a)
+    # a = np.arange(1, 10, 1)
+    # print (a)
     # # #
     # # # linspace函数通过指定起始值、终止值和元素个数来创建数组，缺省包括终止值
     # b = np.linspace(1, 10, 10)
@@ -213,11 +213,11 @@ if __name__ == "__main__":
     # a = np.arange(0, 60, 10).reshape((-1, 1)) + np.arange(6)
     # print a
     # # 二维数组的切片
-    # print a[(0,1,2,3), (2,3,4,5)]
-    # print a[3:, [0, 2, 5]]
+    # print (a[(0,1,2,3), (2,3,4,5)])
+    # print (a[3:, [0, 2, 5]])
     # i = np.array([True, False, True, False, False, True])
-    # print a[i]
-    # print a[i, 3]
+    # print (a[i])
+    # print (a[i, 3])
 
     # # 4. numpy与Python数学库的时间比较
     # for j in np.logspace(0, 7, 10):
@@ -277,15 +277,15 @@ if __name__ == "__main__":
     # plt.show()
 
     # 5.4 胸型线
-    x = np.arange(1, 0, -0.001)
-    a = np.exp(-(40 * (x - 1 / np.e)) ** 4) / 25
-    y = (-3 * x * np.log(x)+a) /2
-    print(x)
-    print(y)
-    plt.figure(figsize=(5,7))
-    plt.plot(y, x, 'r-', linewidth=2)
-    plt.grid(True)
-    plt.show()
+    # x = np.arange(1, 0, -0.001)
+    # a = np.exp(-(40 * (x - 1 / np.e)) ** 4) / 25
+    # y = (-3 * x * np.log(x)+a) /2
+    # print(x)
+    # print(y)
+    # plt.figure(figsize=(5,7))
+    # plt.plot(y, x, 'r-', linewidth=2)
+    # plt.grid(True)
+    # plt.show()
 
     # 5.5 心形线
     # t = np.linspace(0, 7, 100)

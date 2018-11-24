@@ -72,21 +72,25 @@ if __name__ == '__main__':
     train_data = data[90*7:];
     test_data = data[:90*7];
     x_data, y_data = np.split(train_data, (10,), axis=1)
-
-    # x_data = x_data/30.
-
-
-
-
-    # print(tmp_x)
     x_data = oneToTwo(x_data)
-    y_data = merge(y_data)
-
     x_test_data, y_test_data = np.split(test_data, (10,), axis=1)
     x_test_data = oneToTwo(x_test_data)
-    y_test_data = merge(y_test_data)
+    # x_data = x_data/30.
+
     trait = 1 * 10
-    num_type = 4
+    # num_type = 4
+    # y_data = merge(y_data)
+    # y_test_data = merge(y_test_data)
+
+
+    num_type = 2
+    y_data = np.split(y_data, (1,), axis=1)[1]
+    y_test_data = np.split(y_test_data, (1,), axis=1)[1]
+
+
+
+
+
 
     # x = tf.placeholder("float", shape=[None, trait])
     # y_ = tf.placeholder("float", shape=[None, num_type])
@@ -113,7 +117,7 @@ if __name__ == '__main__':
     print('Test loss:', test_loss)
     print('Test accuracy:', test_acc)
 
-    predictions = model.predict(x_test_data)
-
-    print('data:',x_test_data[0],'predictions:', np.argmax(predictions[0]))
-    print('data:',x_test_data[1],'predictions:', np.argmax(predictions[1]))
+    # predictions = model.predict(x_test_data)
+    #
+    # print('data:',x_test_data[0],'predictions:', np.argmax(predictions[0]))
+    # print('data:',x_test_data[1],'predictions:', np.argmax(predictions[1]))

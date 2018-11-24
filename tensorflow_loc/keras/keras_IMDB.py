@@ -157,8 +157,8 @@ if __name__ == '__main__':
     results = model.evaluate(test_data, test_labels)
     print(results)
 
-    # predictions = model.predict(test_data)
-    # print(predictions[1],test_labels[1])
+    predictions = model.predict(test_data)
+    print(predictions[1],test_labels[1])
 
     # history_dict = history.history
     # history_dict.keys()

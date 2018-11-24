@@ -27,7 +27,8 @@ if __name__ == '__main__':
         # saver = tf.train.Saver()
         for i in range(1000):
             batch_xs, batch_ys = mnist.train.next_batch(100)
-
+            # print('x=',batch_xs[0])
+            # print('y=',batch_ys[0])
             train_step.run(feed_dict={x: batch_xs, y_: batch_ys})
 
         correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
