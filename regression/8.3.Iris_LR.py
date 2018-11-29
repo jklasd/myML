@@ -115,7 +115,7 @@ if __name__ == "__main__":
     y_hat = lr.predict(x)
     y = y.reshape(-1)
     result = y_hat == y
-    print (y_hat)
-    print (result)
+    # print (y_hat)
+    # print (result)
     acc = np.mean(result)
     print ('准确度: %.2f%%' % (100 * acc))

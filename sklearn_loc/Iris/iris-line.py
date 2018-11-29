@@ -28,7 +28,7 @@ if __name__ == "__main__":
     # print(model)
     print("==========================MODEl==========================")
     # diabetes_y_pred = model.predict(diabetes_X_test)
-    lang = np.random.randint(0,150,30)
+    lang = np.random.randint(0,150,30)#生成 0~150 ，30个随机整数
     diabetes_y_pred = model.predict(x[lang])
     print('原值：',y[lang])
     print('预测值：',diabetes_y_pred)
