@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from sklearn import preprocessing
+from sklearn import preprocessing,linear_model
 
 def iris_type(s):
     s = str(s,'utf-8')
@@ -12,7 +12,7 @@ if __name__ == "__main__":
     df = pd.read_csv(path, header=0)
     x = df.values[:, :-1]
     y = df.values[:, -1]
-    # print(iris_type(y))
+    # print(y)
 
     le = preprocessing.LabelEncoder()
     le.fit(['Iris-setosa', 'Iris-versicolor', 'Iris-virginica'])
@@ -20,4 +20,18 @@ if __name__ == "__main__":
     # print(y)
     #线性模型公式：
     # y = XW
-    print("==========================begin==========================")
+    model = linear_model.LogisticRegression()
+    model.fit(x,y)
+    # print(model.coef_)
+    # print(model.intercept_)
+    # print(model.alpha_)
+    # print(model)
+    print("==========================MODEl==========================")
+    # diabetes_y_pred = model.predict(diabetes_X_test)
+    lang = np.random.randint(0,150,30)
+    diabetes_y_pred = model.predict(x[lang])
+    print('原值：',y[lang])
+    print('预测值：',diabetes_y_pred)
+    result = y[lang] == diabetes_y_pred
+    acc = np.mean(result)
+    print('准确度: %.2f%%' % (100 * acc))
