@@ -56,6 +56,7 @@ if __name__ == '__main__':
     # print(data[0])
     train_data = data[90*7:];
     test_data = data[:90*7];
+    # test_data = test_data[90:];
     x_data, y_data = np.split(train_data, (10,), axis=1)
     # x_data = oneToTwo(x_data)
     x_test_data, y_test_data = np.split(test_data, (10,), axis=1)
