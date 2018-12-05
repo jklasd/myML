@@ -1,5 +1,5 @@
 import numpy as np
-from sklearn import tree
+from sklearn import gaussian_process
 
 
 def merge(arr):
@@ -69,7 +69,7 @@ if __name__ == '__main__':
     # print(x_test_data)
     # print(y_test_data.T[0])
 
-    model = tree.DecisionTreeClassifier()
+    model = gaussian_process.GaussianProcessClassifier()
 
     model.fit(x_data,y_data.T[0])
 

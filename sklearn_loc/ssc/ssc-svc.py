@@ -54,8 +54,8 @@ if __name__ == '__main__':
     path = './blod.data'
     data = np.loadtxt(path, delimiter=' ',skiprows=1)
     # print(data[0])
-    train_data = data[90*7:];
-    test_data = data[:90*7];
+    train_data = data[90*20:];
+    test_data = data[:90*20];
     # test_data = test_data[90:];
     x_data, y_data = np.split(train_data, (10,), axis=1)
     # x_data = oneToTwo(x_data)
