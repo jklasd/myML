@@ -64,6 +64,8 @@ if __name__ == '__main__':
     y_data = np.split(y_data, (1,), axis=1)[0]
     y_test_data = np.split(y_test_data, (1,), axis=1)[0]
 
+    # x_data = x_data[:,[1,2,3,4,6,7,8,9]]
+    # x_test_data = x_test_data[:, [1, 2, 3, 4, 6, 7, 8, 9]]
     # print(x_data)
     # print(y_data.T[0])
     # print(x_test_data)

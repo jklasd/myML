@@ -61,19 +61,33 @@ if __name__ == '__main__':
     # x_data = oneToTwo(x_data)
     x_test_data, y_test_data = np.split(test_data, (10,), axis=1)
     # x_test_data = oneToTwo(x_test_data)
-    y_data = np.split(y_data, (1,), axis=1)[0]
-    y_test_data = np.split(y_test_data, (1,), axis=1)[0]
+    # y_data = np.split(y_data, (1,), axis=1)
+    # y_test_data = np.split(y_test_data, (1,), axis=1)
 
     # print(x_data)
-    # print(y_data.T[0])
+    # print(y_data)
     # print(x_test_data)
     # print(y_test_data.T[0])
 
     model = tree.DecisionTreeClassifier()
-
-    model.fit(x_data,y_data.T[0])
-
+    model.fit(x_data,y_data)
     diabetes_y_pred = model.predict(x_test_data)
-    result = y_test_data.T[0] == diabetes_y_pred
+    # print('真实值：', y_test_data)
+    # print('预测值：',diabetes_y_pred)
+    result = y_test_data == diabetes_y_pred
     acc = np.mean(result)
-    print('准确度: %.2f%%' % (100 * acc))
+    print('二元类准确度: %.2f%%' % (100 * acc))
+
+    # print(y_data)
+    y_data2 = y_data[:, :-1]
+    # print(y_data2)
+    y_test_data2 = y_test_data[:,:-1]
+
+    model2 = tree.DecisionTreeClassifier()
+    model2.fit(x_data, y_data2)
+    diabetes_y_pred2 = model2.predict(x_test_data)
+    # print('真实值：', y_test_data)
+    # print('预测值：',diabetes_y_pred)
+    result2 = y_test_data2 == diabetes_y_pred2
+    acc2 = np.mean(result2)
+    print('一元分类准确度: %.2f%%' % (100 * acc2))
