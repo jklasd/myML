@@ -69,7 +69,8 @@ if __name__ == '__main__':
     # print(y_test_data.T[0])
 
     model = linear_model.LogisticRegression()
-
+    # model = linear_model.RANSACRegressor()
+    # print(y_data.T[0])
     model.fit(x_data,y_data.T[0])
 
     diabetes_y_pred = model.predict(x_test_data)
