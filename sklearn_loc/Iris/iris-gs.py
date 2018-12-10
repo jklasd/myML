@@ -15,7 +15,7 @@ if __name__ == "__main__":
     le.fit(['Iris-setosa', 'Iris-versicolor', 'Iris-virginica'])
     y = le.transform(y)
     y_test = le.transform(y_test)
-    print("==================SVC Model===================")
+    print("==================GAUSSIAN Model===================")
 
     gs = gaussian_process.GaussianProcessClassifier()
     gs.fit(x,y)
